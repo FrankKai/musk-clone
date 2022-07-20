@@ -8,6 +8,12 @@
     "lodash.clonedeep": "^4.5.0",
     "nanoid": "^3.0.0"
   },
+  "maintainers": [
+    {
+      "name": "FrankKai",
+      "email": "gaokai20100801@gmai.com"
+    }
+  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
