@@ -15,7 +15,7 @@ function generate(item) {
     Array.isArray(item) ||
     Object.prototype.toString.call(item) === "[object Object]"
   ) {
-    return muskClone(item);
+    return muskClone(cloneDeep(item));
   }
   return cloneDeep(item);
 }
