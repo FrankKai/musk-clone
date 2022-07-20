@@ -12,8 +12,8 @@ export default [
       format: "umd",
     },
     plugins: [
-      resolve(), // so Rollup can find `ms`
-      commonjs(), // so Rollup can convert `ms` to an ES module
+      resolve(), // so Rollup can find `nanoid` `lodash.cloneDeep`
+      commonjs(), // so Rollup can convert `nanoid` `lodash.cloneDeep` to an ES module
     ],
   },
 
@@ -25,7 +25,6 @@ export default [
   // `file` and `format` for each target)
   {
     input: "src/index.js",
-    external: ["ms"],
     output: [
       { file: pkg.main, format: "cjs" },
       { file: pkg.module, format: "es" },
