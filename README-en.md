@@ -1,3 +1,5 @@
+[中文简体](./README.md)
+
 # musk-clone
 Generate a mock shadow clone with same data structure, as speed as Elon Musk.
 >The world's richest man, Elon Musk, has 9 children and is doing his part to increase the U.S. fertility rate
