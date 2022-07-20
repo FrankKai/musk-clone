@@ -1,27 +1,28 @@
 # musk-clone
-生成具有相同数据结构的模拟影子克隆，速度与 Elon Musk 一样。
->世界首富马斯克生9个子女，说自己为提高美国生育率正在尽一份力
+Generate a mock shadow clone with same data structure, as speed as Elon Musk.
+>The world's richest man, Elon Musk, has 9 children and is doing his part to increase the U.S. fertility rate
 
-## 为什么要用 musk-clone?
-当你想制作一个与现有的具有相同数据结构的新模拟项目时，你必须**复制--> 逐一修改--> 粘贴**，这个过程会花费很多时间。
+## Why musk-clone?
+When you want to make a new mock item with same data structure as an exist one, you must **copy --> modify one by one --> paste** , this progress costs a lot time.
+Now you can musk-clone to save your time!
 
-现在您可以使用musk-clone以节省您的时间！
+## Feature
+According to the incoming data, quickly generate a data of the same data structure, which is used to quickly construct mock data in the development stage
 
-## 特性
-根据传入的数据，快速生成一份相同数据结构的数据，用于开发阶段快速构造mock数据
+- source mainly supports the two most common types, object types and array types, and supports deep nesting
+- Converts only the basic types string, number, boolean, the rest return the original value with the new memory address
 
-- source主要支持最常见的两种类型，对象类型和数组类型，支持深层嵌套
-- 仅对基本类型string，number，boolean进行转换，其余均返回具有新内存地址的原值
-
-## 安装
-
+## Install
+```
+npm install musk-clone --save-dev
+```
 ```js
 yarn add -D musk-clone
 ```
 
-## 使用
+## Usage
 
-### 基本使用
+### Basic Usage
 ```js
 import muskClone from 'musk-clone'
 
@@ -31,7 +32,7 @@ console.log(target);
 // ["foo-0v3DrX7hoOqIFaQeMDDaF", 71, true],
 ```
 
-### 常用场景
+### Frequently-used Case
 ```js
 import muskClone from 'musk-clone'
 
@@ -52,16 +53,16 @@ console.log(target);
 ### source
 - {[key: string]: any} | Array<{[key: string]: any}>
 
-## 示例
+## Example
 
-### 数组
+### Array
 ```js
 ["foo", 1, true]
 =>
 
 ["foo-0v3DrX7hoOqIFaQeMDDaF", 71, false]
 ```
-### 对象
+### Object
 ```js
 { 
   foo: "str", 
@@ -76,7 +77,7 @@ console.log(target);
   val: true
 }
 ```
-### 对象数组
+### Object Array
 ```js
 [
   { 
@@ -94,7 +95,7 @@ console.log(target);
   }
 ]
 ```
-### 复杂嵌套数据结构
+### Complex Nest Data Structure
 ```js
 [
   { 
@@ -124,8 +125,8 @@ console.log(target);
 
 ```
 
-## 其它
-欢迎提PR和issue
+## Other
+Welcome to pull request or create issue
 ## License
 
 [MIT](LICENSE).

@@ -1,0 +1,36 @@
+{
+  "name": "musk-clone",
+  "version": "0.0.1",
+  "main": "dist/muskClone.cjs.js",
+  "module": "dist/muskClone.esm.js",
+  "browser": "dist/muskClone.umd.js",
+  "dependencies": {
+    "lodash.clonedeep": "^4.5.0",
+    "nanoid": "^3.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "kleur": "^4.1.5",
+    "rollup": "^1.29.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrankKai/musk-clone.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/index.js",
+    "pretest": "npm run build",
+    "alpha": "npm version prerelease --preid=alpha && yarn build && npm publish --tag=alpha",
+    "beta": "npm version prerelease --preid=beta && yarn build && npm publish --tag=beta",
+    "patch": "npm version patch",
+    "patch:publish": "yarn patch && yarn build && npm publish",
+    "minor": "npm version minor",
+    "major": "npm version major"
+  },
+  "files": [
+    "dist"
+  ]
+}
