@@ -2,7 +2,7 @@
 
 # musk-clone
 Generate a mock shadow clone with same data structure, as speed as Elon Musk.
->The world's richest man, Elon Musk, has 9 children and is doing his part to increase the U.S. fertility rate
+>Tesla CEO Elon Musk has 9 children, says he's doing his part to increase U.S. fertility
 
 ## Why musk-clone?
 When you want to make a new mock item with same data structure as an exist one, you must **copy --> modify one by one --> paste** , this progress costs a lot time.
