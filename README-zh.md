@@ -15,6 +15,9 @@
 - source主要支持最常见的两种类型，对象类型和数组类型，支持深层嵌套
 - 仅对基本类型string，number，boolean进行转换，其余均返回具有新内存地址的原值
 
+## 在线demo
+https://codesandbox.io/s/musk-clone-x137mv
+
 ## 安装
 
 ```js

@@ -8,6 +8,9 @@ Generate a mock shadow clone with same data structure, as speed as Elon Musk.
 When you want to make a new mock item with same data structure as an exist one, you must **copy --> modify one by one --> paste** , this progress costs a lot time.
 Now you can musk-clone to save your time!
 
+## Online demo
+https://codesandbox.io/s/musk-clone-x137mv
+
 ## Feature
 According to the incoming data, quickly generate a data of the same data structure, which is used to quickly construct mock data in the development stage
 
