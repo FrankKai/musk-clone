@@ -1,12 +1,15 @@
 import { nanoid } from "nanoid";
 import cloneDeep from "lodash.clonedeep";
+import { arrayRandom } from "./array-random";
 
 function generate(item) {
   if (typeof item === "string") {
     return `${item}-${nanoid()}`;
   }
   if (typeof item === "number") {
-    return item + Math.floor(Math.random() * 100);
+    const num = 5;
+    const range = [Math.floor(item - num), Math.floor(item + num)];
+    return arrayRandom(range)
   }
   if (typeof item === "boolean") {
     return Math.random() > 0.5;

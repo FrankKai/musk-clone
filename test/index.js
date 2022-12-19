@@ -13,6 +13,7 @@ const cases = [
   ],
   [{ foo: "str", bar: 1, val: true, nest: { baz: 2 } }],
   [{ foo: "str", bar: 1, val: true, nest: [{ baz: 2 }] }],
+  [{ foo: "str", bar: 93, val: true, nest: [{ baz: 23 }] }],
 ];
 
 const res = muskClone(cases);
