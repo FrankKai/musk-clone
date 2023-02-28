@@ -207,10 +207,10 @@ picomatch@^2.2.2:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-random-pro.js@^0.0.2-alpha.2:
-  version "0.0.2-alpha.2"
-  resolved "https://registry.npmjs.org/random-pro.js/-/random-pro.js-0.0.2-alpha.2.tgz#31150a69951e0e08652fa178cd62509fba09e88b"
-  integrity sha512-+s56a3geZVpWG6JnJuX5zypreBzV83S8VIQdVLPvhwxpWEOoLSxEc5Jxjn2aBiP2oZ4CnPH/413X5fwLdknTWg==
+random-pro.js@^0.0.2-alpha.6:
+  version "0.0.2-alpha.6"
+  resolved "https://registry.npmjs.org/random-pro.js/-/random-pro.js-0.0.2-alpha.6.tgz#0d2980a27668e67227e938a60c07b3e7d48c68bd"
+  integrity sha512-fp+g7QwvJrrdlcFZm4zNRRg3BVtXRYUBcQrLESfnEOSeckHnzSgMuE+3zSiptTMrf6NFikvZ0jdxC7Lym/K7Hg==
 
 resolve@^1.11.0, resolve@^1.14.2:
   version "1.22.1"

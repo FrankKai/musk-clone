@@ -7,7 +7,7 @@
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
     "nanoid": "^3.0.0",
-    "random-pro.js": "^0.0.2-alpha.2"
+    "random-pro.js": "^0.0.2-alpha.6"
   },
   "maintainers": [
     {
