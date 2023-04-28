@@ -67,24 +67,24 @@ console.log(target);
 // [
 //   [
 //     {
-//       "foo": "str-yxx-TXArqiIV0qe1zstdK-FlHk4kw7McvmkyQEQDkj7",
-//       "bar": 8,
-//       "val": false
+//       "foo": "str-GEoG0NphDqhwQZ44aH2LF",
+//       "bar": 5,
+//       "val": true
 //     },
 //     {
-//       "foo": "str1-Rphwpm9WEHtjGd6vxFFbA-zALU5dnOREbxY3xx0qS6N",
-//       "bar": 5,
-//       "val": false
+//       "foo": "str1-mxD-IMD6U9BocOp8ql_XY",
+//       "bar": 7,
+//       "val": true
 //     }
 //   ],
 //   [
 //     {
-//       "foo": "str-yxx-TXArqiIV0qe1zstdK-Hbsl8F2U7qzl7kbrmxZER",
-//       "bar": 2,
-//       "val": false
+//       "foo": "str-ldPI7kVtHeUOMph1U4yi8",
+//       "bar": 3,
+//       "val": true
 //     },
 //     {
-//       "foo": "str1-Rphwpm9WEHtjGd6vxFFbA-3JcaWxUV4vv0OkQfDKDLN",
+//       "foo": "str1-EbVeOGe1YRjudpKDjA-gR",
 //       "bar": 7,
 //       "val": false
 //     }
