@@ -14,6 +14,7 @@
 
 - source主要支持最常见的两种类型，对象类型和数组类型，支持深层嵌套
 - 仅对基本类型string，number，boolean进行转换，其余均返回具有新内存地址的原值
+- 支持repeat，批量返回多个经过musk-clone后的对象
 
 ## 在线demo
 https://codesandbox.io/s/musk-clone-x137mv
@@ -49,6 +50,44 @@ console.log(target);
 // [
 //   { foo: "str-jHGKjWz3kz0ome5-tl6MS", bar: 36, val: false },
 //   { foo: "str1-LqOPbB5xXYKXV8hmBB_Q6", bar: 2, val: true }
+// ]
+```
+
+### 克隆多个
+```js
+import muskClone from 'musk-clone'
+
+const src = [
+  { foo: "str", bar: 1, val: true },
+  { foo: "str1", bar: 2, val: false },
+]
+const target = muskClone(src, 2);
+console.log(target); 
+// [
+//   [
+//     {
+//       "foo": "str-yxx-TXArqiIV0qe1zstdK-FlHk4kw7McvmkyQEQDkj7",
+//       "bar": 8,
+//       "val": false
+//     },
+//     {
+//       "foo": "str1-Rphwpm9WEHtjGd6vxFFbA-zALU5dnOREbxY3xx0qS6N",
+//       "bar": 5,
+//       "val": false
+//     }
+//   ],
+//   [
+//     {
+//       "foo": "str-yxx-TXArqiIV0qe1zstdK-Hbsl8F2U7qzl7kbrmxZER",
+//       "bar": 2,
+//       "val": false
+//     },
+//     {
+//       "foo": "str1-Rphwpm9WEHtjGd6vxFFbA-3JcaWxUV4vv0OkQfDKDLN",
+//       "bar": 7,
+//       "val": false
+//     }
+//   ]
 // ]
 ```
 

@@ -9,7 +9,7 @@ function generate(item) {
   if (typeof item === "number") {
     const num = 5;
     const range = [Math.floor(item - num), Math.floor(item + num)];
-    return arrayRandom(range)
+    return arrayRandom(range);
   }
   if (typeof item === "boolean") {
     return Math.random() > 0.5;
@@ -23,7 +23,7 @@ function generate(item) {
   return cloneDeep(item);
 }
 
-export default function muskClone(source) {
+export default function muskClone(source, repeat = 1) {
   // null
   if (!source) {
     return;
@@ -51,5 +51,18 @@ export default function muskClone(source) {
     }
   }
 
-  return target;
+  if (repeat === 1) {
+    return target;
+  }
+
+  // repeat model
+  if (repeat > 1) {
+    const repeatTarget = [];
+    let i = 0;
+    while (i < repeat) {
+      repeatTarget.push(muskClone(target, 1));
+      i++;
+    }
+    return repeatTarget;
+  }
 }

@@ -16,6 +16,7 @@ According to the incoming data, quickly generate a data of the same data structu
 
 - source mainly supports the two most common types, object types and array types, and supports deep nesting
 - Converts only the basic types string, number, boolean, the rest return the original value with the new memory address
+- Support repeat, return multiple musk-clone objects in batches
 
 ## Install
 ```
@@ -50,6 +51,44 @@ console.log(target);
 // [
 //   { foo: "str-jHGKjWz3kz0ome5-tl6MS", bar: 36, val: false },
 //   { foo: "str1-LqOPbB5xXYKXV8hmBB_Q6", bar: 2, val: true }
+// ]
+```
+
+### Clone multiple
+```js
+import muskClone from 'musk-clone'
+
+const src = [
+  { foo: "str", bar: 1, val: true },
+  { foo: "str1", bar: 2, val: false },
+]
+const target = muskClone(src, 2);
+console.log(target); 
+// [
+//   [
+//     {
+//       "foo": "str-yxx-TXArqiIV0qe1zstdK-FlHk4kw7McvmkyQEQDkj7",
+//       "bar": 8,
+//       "val": false
+//     },
+//     {
+//       "foo": "str1-Rphwpm9WEHtjGd6vxFFbA-zALU5dnOREbxY3xx0qS6N",
+//       "bar": 5,
+//       "val": false
+//     }
+//   ],
+//   [
+//     {
+//       "foo": "str-yxx-TXArqiIV0qe1zstdK-Hbsl8F2U7qzl7kbrmxZER",
+//       "bar": 2,
+//       "val": false
+//     },
+//     {
+//       "foo": "str1-Rphwpm9WEHtjGd6vxFFbA-3JcaWxUV4vv0OkQfDKDLN",
+//       "bar": 7,
+//       "val": false
+//     }
+//   ]
 // ]
 ```
 

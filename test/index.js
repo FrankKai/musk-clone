@@ -20,10 +20,24 @@ const cases = [
   4,
 ];
 
-const res = muskClone(cases);
-const formatRes = success(JSON.stringify(res, null, 2));
+// const res = muskClone(cases);
+// const formatRes = success(JSON.stringify(res, null, 2));
 
-console.log(formatRes);
+// console.log(formatRes);
+
+const resRepeat = muskClone(cases, 2);
+const formatResRepeat = success(JSON.stringify(resRepeat, null, 2));
+
+console.log('repeat:::', formatResRepeat);
+
+
+const src = [
+  { foo: "str", bar: 1, val: true },
+  { foo: "str1", bar: 2, val: false },
+]
+const srcRepeat = muskClone(src, 2);
+const formatSrc = success(JSON.stringify(srcRepeat, null, 2));
+console.log('formatSrc:::', formatSrc);
 
 // [
 //   [
