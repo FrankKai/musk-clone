@@ -1,6 +1,6 @@
 {
   "name": "musk-clone",
-  "version": "0.0.7",
+  "version": "0.0.8-alpha.0",
   "main": "dist/muskClone.cjs.js",
   "module": "dist/muskClone.esm.js",
   "browser": "dist/muskClone.umd.js",
