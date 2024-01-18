@@ -16,6 +16,7 @@
 - 仅对基本类型string，number，boolean进行转换，其余均返回具有新内存地址的原值
 - 支持repeat，批量返回多个经过musk-clone后的对象
 - 支持忽略mock对象的某些key
+- 支持自定义key的返回内容
 
 ## 在线demo
 https://codesandbox.io/s/musk-clone-x137mv
@@ -124,14 +125,53 @@ console.log(target);
 //     }
 //   ]
 // ]
+```
+
+### 自定义key的返回内容
+```js
+const src = [
+  { foo: "str", bar: 1, val: true },
+  { foo: "str1", bar: 2, val: false },
+];
+const target = muskClone(src, 2, ["foo"], {
+  bar: (item) => item + Math.random(),
+});
+// [
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 1.6969435733626381,
+//       "val": true
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 2.8654049353811537,
+//       "val": false
+//     }
+//   ],
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 1.840926677103744,
+//       "val": true
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 2.9165549953686725,
+//       "val": false
+//     }
+//   ]
+// ]
+```
 
 
 ## API
-`muskClone(source, repeat = 1, ignores = [])`
+`muskClone(source, repeat = 1, ignores = [], fieldCallbacks = {})`
 
 - source: {[key: string]: any} | Array<{[key: string]: any}>
 - repeat?: number
 - ignores?: Array<string>
+- fieldCallbacks?: Record<string, (arg: T) => T>
 
 ## 示例
 

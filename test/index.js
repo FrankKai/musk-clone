@@ -14,7 +14,7 @@ const cases = [
   [{ foo: "str", bar: 1, val: true, nest: { baz: 2 } }],
   [{ foo: "str", bar: 1, val: true, nest: [{ baz: 2 }] }],
   [{ foo: "str", bar: 93, val: true, nest: [{ baz: 23 }] }],
-  [2,3,1,4,5,9],
+  [2, 3, 1, 4, 5, 9],
   9,
   10,
   4,
@@ -28,16 +28,15 @@ const cases = [
 const resRepeat = muskClone(cases, 2);
 const formatResRepeat = success(JSON.stringify(resRepeat, null, 2));
 
-console.log('repeat:::', formatResRepeat);
-
+console.log("repeat:::", formatResRepeat);
 
 const src = [
   { foo: "str", bar: 1, val: true },
   { foo: "str1", bar: 2, val: false },
-]
+];
 const srcRepeat = muskClone(src, 2);
 const formatSrc = success(JSON.stringify(srcRepeat, null, 2));
-console.log('formatSrc:::', formatSrc);
+console.log("formatSrc:::", formatSrc);
 
 // [
 //   [
@@ -85,3 +84,25 @@ console.log('formatSrc:::', formatSrc);
 //     }
 //   ]
 // ]
+const src1 = [
+  { foo: "str", bar: 1, val: true },
+  { foo: "str1", bar: 2, val: false },
+  { foo: "str1", bar: 2, val: false, fxx: { foo: "str1", bar: 2, val: false } },
+];
+const srcRepeat1 = muskClone(src1, 2, ["foo"], {
+  bar: (item) => item + Math.random(),
+});
+const formatSrc1 = success(JSON.stringify(srcRepeat1, null, 2));
+console.log("formatSrc:::1", formatSrc1);
+
+
+
+const src2 = [
+  { foo: "str", bar: 1, val: true },
+  { foo: "str1", bar: 2, val: false },
+];
+const srcRepeat2 = muskClone(src2, 2, ["foo"], {
+  bar: (item) => item + Math.random(),
+});
+const formatSrc2 = success(JSON.stringify(srcRepeat2, null, 2));
+console.log("formatSrc:::2", formatSrc2);

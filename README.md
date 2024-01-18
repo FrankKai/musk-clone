@@ -18,6 +18,7 @@ According to the incoming data, quickly generate a data of the same data structu
 - Converts only the basic types string, number, boolean, the rest return the original value with the new memory address
 - Support repeat, return multiple musk-clone objects in batches
 - Supports ignoring some keys of mock objects
+- Supports customizing the return content of the key
 
 ## Install
 ```
@@ -125,6 +126,44 @@ console.log(target);
 //     }
 //   ]
 // ]
+```
+
+### Customize the return content of the key
+```js
+const src = [
+  { foo: "str", bar: 1, val: true },
+  { foo: "str1", bar: 2, val: false },
+];
+const target = muskClone(src, 2, ["foo"], {
+  bar: (item) => item + Math.random(),
+});
+// [
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 1.6969435733626381,
+//       "val": true
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 2.8654049353811537,
+//       "val": false
+//     }
+//   ],
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 1.840926677103744,
+//       "val": true
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 2.9165549953686725,
+//       "val": false
+//     }
+//   ]
+// ]
+```
 
 ## API
 `muskClone(source, repeat = 1, ignores = [])`
@@ -132,6 +171,7 @@ console.log(target);
 - source: {[key: string]: any} | Array<{[key: string]: any}>
 - repeat: number
 - ignores: Array<string>
+- fieldCallbacks?: Record<string, (arg: T) => T>
 
 ## Example
 
