@@ -15,6 +15,7 @@
 - source主要支持最常见的两种类型，对象类型和数组类型，支持深层嵌套
 - 仅对基本类型string，number，boolean进行转换，其余均返回具有新内存地址的原值
 - 支持repeat，批量返回多个经过musk-clone后的对象
+- 支持忽略mock对象的某些key
 
 ## 在线demo
 https://codesandbox.io/s/musk-clone-x137mv
@@ -91,10 +92,46 @@ console.log(target);
 // ]
 ```
 
+### 忽略mock对象key
+```js
+import muskClone from 'musk-clone'
+
+const src = [
+  { foo: "str", bar: 1 },
+  { foo: "str1", bar: 2 },
+]
+const target = muskClone(src, 2, ignores: ['foo']);
+console.log(target); 
+// [
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 5,
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 7,
+//     }
+//   ],
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 3,
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 7,
+//     }
+//   ]
+// ]
+
+
 ## API
-`muskClone(source)`
-### source
-- {[key: string]: any} | Array<{[key: string]: any}>
+`muskClone(source, repeat = 1, ignores = [])`
+
+- source: {[key: string]: any} | Array<{[key: string]: any}>
+- repeat?: number
+- ignores?: Array<string>
 
 ## 示例
 

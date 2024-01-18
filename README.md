@@ -17,6 +17,7 @@ According to the incoming data, quickly generate a data of the same data structu
 - source mainly supports the two most common types, object types and array types, and supports deep nesting
 - Converts only the basic types string, number, boolean, the rest return the original value with the new memory address
 - Support repeat, return multiple musk-clone objects in batches
+- Supports ignoring some keys of mock objects
 
 ## Install
 ```
@@ -92,10 +93,45 @@ console.log(target);
 // ]
 ```
 
+### Ignore mock object key
+```js
+import muskClone from 'musk-clone'
+
+const src = [
+  { foo: "str", bar: 1 },
+  { foo: "str1", bar: 2 },
+]
+const target = muskClone(src, 2, ignores: ['foo']);
+console.log(target); 
+// [
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 5,
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 7,
+//     }
+//   ],
+//   [
+//     {
+//       "foo": "str",
+//       "bar": 3,
+//     },
+//     {
+//       "foo": "str1",
+//       "bar": 7,
+//     }
+//   ]
+// ]
+
 ## API
-`muskClone(source)`
-### source
-- {[key: string]: any} | Array<{[key: string]: any}>
+`muskClone(source, repeat = 1, ignores = [])`
+
+- source: {[key: string]: any} | Array<{[key: string]: any}>
+- repeat: number
+- ignores: Array<string>
 
 ## Example
 
