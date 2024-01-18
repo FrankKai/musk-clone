@@ -60,7 +60,7 @@ export default function muskClone(source, repeat = 1, ignores = []) {
     const repeatTarget = [];
     let i = 0;
     while (i < repeat) {
-      repeatTarget.push(muskClone(source, 1));
+      repeatTarget.push(muskClone(source, 1, ignores));
       i++;
     }
     return repeatTarget;
