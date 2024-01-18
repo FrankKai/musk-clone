@@ -23,7 +23,7 @@ function generate(item) {
   return cloneDeep(item);
 }
 
-export default function muskClone(source, repeat = 1) {
+export default function muskClone(source, repeat = 1, ignores = []) {
   // null
   if (!source) {
     return;
@@ -47,7 +47,7 @@ export default function muskClone(source, repeat = 1) {
   if (Object.prototype.toString.call(source) === "[object Object]") {
     target = {};
     for (const [key, value] of Object.entries(source)) {
-      target[key] = generate(value);
+      target[key] = ignores.includes(value) ? value : generate(value);
     }
   }
 
