@@ -102,7 +102,7 @@ const src = [
   { foo: "str", bar: 1 },
   { foo: "str1", bar: 2 },
 ]
-const target = muskClone(src, 2, ignores: ['foo']);
+const target = muskClone(src, 2, ['foo']);
 console.log(target); 
 // [
 //   [
