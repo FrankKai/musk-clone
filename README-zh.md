@@ -34,7 +34,7 @@ yarn add -D musk-clone
 import muskClone from 'musk-clone'
 
 const src = ["foo", 1, true]
-const target = muskClone(src);
+const target = muskClone({source: src});
 console.log(target); 
 // ["foo-0v3DrX7hoOqIFaQeMDDaF", 71, true],
 ```
@@ -47,7 +47,7 @@ const src = [
   { foo: "str", bar: 1, val: true },
   { foo: "str1", bar: 2, val: false },
 ]
-const target = muskClone(src);
+const target = muskClone({source: src});
 console.log(target); 
 // [
 //   { foo: "str-jHGKjWz3kz0ome5-tl6MS", bar: 36, val: false },
@@ -63,7 +63,7 @@ const src = [
   { foo: "str", bar: 1, val: true },
   { foo: "str1", bar: 2, val: false },
 ]
-const target = muskClone(src, 2);
+const target = muskClone({source: src, repeat: 2});
 console.log(target); 
 // [
 //   [
@@ -101,7 +101,7 @@ const src = [
   { foo: "str", bar: 1 },
   { foo: "str1", bar: 2 },
 ]
-const target = muskClone(src, 2, ['foo']);
+const target = muskClone({source: src, repeat: 2, ignores:['foo']});
 console.log(target); 
 // [
 //   [
@@ -133,9 +133,9 @@ const src = [
   { foo: "str", bar: 1, val: true },
   { foo: "str1", bar: 2, val: false },
 ];
-const target = muskClone(src, 2, ["foo"], {
+const target = muskClone({source: src, repeat: 2, ignores: ["foo"], fieldCallbacks:{
   bar: (item) => item + Math.random(),
-});
+}});
 // [
 //   [
 //     {
@@ -166,12 +166,16 @@ const target = muskClone(src, 2, ["foo"], {
 
 
 ## API
-`muskClone(source, repeat = 1, ignores = [], fieldCallbacks = {})`
+`muskClone({source, repeat = 1, ignores = [], fieldCallbacks = {}})`
 
-- source: {[key: string]: any} | Array<{[key: string]: any}>
-- repeat?: number
-- ignores?: Array<string>
-- fieldCallbacks?: Record<string, (arg: T) => T>
+```ts
+{
+  source: SourceType;
+  repeat?: number;
+  ignores?: Array<string>;
+  fieldCallbacks?: Record<string, Function>;
+}
+```
 
 ## 示例
 

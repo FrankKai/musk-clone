@@ -1,9 +1,27 @@
 import { nanoid } from "nanoid";
 import cloneDeep from "lodash.clonedeep";
 import { arrayRandom } from "./array-random";
+import type {
+  MuskCloneProps,
+  GenerateItemType,
+  GenerateOptions,
+  SourceType,
+} from "./type";
 
-function generate(item, { ignores, objectKey, fieldCallbacks }) {
-  const callback = fieldCallbacks[objectKey];
+/*
+ * @param item: GenerateItemType
+ * @param ignores: Array<string>
+ * @param objectKey: string
+ * @param fieldCallbacks: Record<string, Function>
+ * @returns: any
+ * @description: generate value based on item type
+ */
+
+function generate(
+  item: GenerateItemType,
+  { ignores, objectKey, fieldCallbacks }: GenerateOptions
+) {
+  const callback = fieldCallbacks?.[objectKey as string];
   if (typeof item === "string") {
     return callback ? callback(item) : `${item}-${nanoid()}`;
   }
@@ -19,17 +37,21 @@ function generate(item, { ignores, objectKey, fieldCallbacks }) {
     Array.isArray(item) ||
     Object.prototype.toString.call(item) === "[object Object]"
   ) {
-    return muskClone(item, 1, ignores, fieldCallbacks);
+    return muskClone({ source: item, repeat: 1, ignores, fieldCallbacks });
   }
   return cloneDeep(item);
 }
 
-export default function muskClone(
-  source,
-  repeat = 1,
-  ignores = [],
-  fieldCallbacks = {} // callback functions based on object keys
+/*
+ ** @param props: MuskCloneProps
+ ** @returns: any
+ ** @description: clone object or array based on MuskCloneProps
+ */
+
+export function muskClone(
+  props: MuskCloneProps // callback functions based on object keys
 ) {
+  const { source, repeat = 1, ignores = [], fieldCallbacks = {} } = props;
   // null
   if (!source) {
     return;
@@ -41,7 +63,7 @@ export default function muskClone(
   ) {
     return;
   }
-  let target = null;
+  let target: SourceType | null = null;
   // Array
   if (Array.isArray(source)) {
     target = [];
@@ -65,10 +87,12 @@ export default function muskClone(
 
   // repeat model
   if (repeat > 1) {
-    const repeatTarget = [];
+    const repeatTarget = [] as any;
     let i = 0;
     while (i < repeat) {
-      repeatTarget.push(muskClone(source, 1, ignores, fieldCallbacks));
+      repeatTarget.push(
+        muskClone({ source, repeat: 1, ignores, fieldCallbacks })
+      );
       i++;
     }
     return repeatTarget;
