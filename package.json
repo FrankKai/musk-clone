@@ -1,6 +1,6 @@
 {
   "name": "musk-clone",
-  "version": "0.0.8-alpha.1",
+  "version": "0.0.8",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
