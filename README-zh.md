@@ -31,7 +31,7 @@ yarn add -D musk-clone
 
 ### 基本使用
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = ["foo", 1, true]
 const target = muskClone({source: src});
@@ -41,7 +41,7 @@ console.log(target);
 
 ### 常用场景
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = [
   { foo: "str", bar: 1, val: true },
@@ -57,7 +57,7 @@ console.log(target);
 
 ### 克隆多个
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = [
   { foo: "str", bar: 1, val: true },
@@ -95,7 +95,7 @@ console.log(target);
 
 ### 忽略mock对象key
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = [
   { foo: "str", bar: 1 },

@@ -32,7 +32,7 @@ yarn add -D musk-clone
 
 ### Basic Usage
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = ["foo", 1, true]
 const target = muskClone({source: src});
@@ -42,7 +42,7 @@ console.log(target);
 
 ### Frequently-used Case
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = [
   { foo: "str", bar: 1, val: true },
@@ -58,7 +58,7 @@ console.log(target);
 
 ### Clone multiple
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = [
   { foo: "str", bar: 1, val: true },
@@ -96,7 +96,7 @@ console.log(target);
 
 ### Ignore mock object key
 ```js
-import muskClone from 'musk-clone'
+import { muskClone } from 'musk-clone'
 
 const src = [
   { foo: "str", bar: 1 },
