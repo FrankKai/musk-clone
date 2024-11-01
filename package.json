@@ -1,13 +1,19 @@
 {
   "name": "musk-clone",
   "version": "0.0.8-alpha.0",
-  "main": "dist/muskClone.cjs.js",
-  "module": "dist/muskClone.esm.js",
-  "browser": "dist/muskClone.umd.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "files": [
+    "src/**",
+    "dist/**",
+    "package.json",
+    "tsconfig.json"
+  ],
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
     "nanoid": "^3.0.0",
-    "random-pro.js": "^0.0.2-alpha.6"
+    "random-pro.js": "^0.0.2"
   },
   "maintainers": [
     {
@@ -26,8 +32,7 @@
     "url": "git+https://github.com/FrankKai/musk-clone.git"
   },
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "test": "node test/index.js",
     "pretest": "npm run build",
     "alpha": "npm version prerelease --preid=alpha && yarn build && npm publish --tag=alpha",
@@ -36,8 +41,5 @@
     "patch:publish": "yarn patch && yarn build && npm publish",
     "minor": "npm version minor",
     "major": "npm version major"
-  },
-  "files": [
-    "dist"
-  ]
+  }
 }

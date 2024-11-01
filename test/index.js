@@ -2,7 +2,9 @@
 const kleur = require("kleur");
 const success = (tip) => kleur.green(tip);
 
-const muskClone = require("../dist/muskClone.cjs");
+const { muskClone } = require("../dist/cjs/index");
+
+console.log("muskClone:::", muskClone);
 
 const cases = [
   ["foo", 1, true],
@@ -20,12 +22,12 @@ const cases = [
   4,
 ];
 
-// const res = muskClone(cases);
+// const res = muskClone({source: cases});
 // const formatRes = success(JSON.stringify(res, null, 2));
 
 // console.log(formatRes);
 
-const resRepeat = muskClone(cases, 2);
+const resRepeat = muskClone({ source: cases, repeat: 2 });
 const formatResRepeat = success(JSON.stringify(resRepeat, null, 2));
 
 console.log("repeat:::", formatResRepeat);
@@ -34,7 +36,7 @@ const src = [
   { foo: "str", bar: 1, val: true },
   { foo: "str1", bar: 2, val: false },
 ];
-const srcRepeat = muskClone(src, 2);
+const srcRepeat = muskClone({ source: src, repeat: 2 });
 const formatSrc = success(JSON.stringify(srcRepeat, null, 2));
 console.log("formatSrc:::", formatSrc);
 
@@ -89,20 +91,28 @@ const src1 = [
   { foo: "str1", bar: 2, val: false },
   { foo: "str1", bar: 2, val: false, fxx: { foo: "str1", bar: 2, val: false } },
 ];
-const srcRepeat1 = muskClone(src1, 2, ["foo"], {
-  bar: (item) => item + Math.random(),
+const srcRepeat1 = muskClone({
+  source: src1,
+  repeat: 2,
+  ignores: ["foo"],
+  fieldCallbacks: {
+    bar: (item) => item + Math.random(),
+  },
 });
 const formatSrc1 = success(JSON.stringify(srcRepeat1, null, 2));
 console.log("formatSrc:::1", formatSrc1);
-
-
 
 const src2 = [
   { foo: "str", bar: 1, val: true },
   { foo: "str1", bar: 2, val: false },
 ];
-const srcRepeat2 = muskClone(src2, 2, ["foo"], {
-  bar: (item) => item + Math.random(),
+const srcRepeat2 = muskClone({
+  source: src2,
+  repeat: 2,
+  ignores: ["foo"],
+  fieldCallbacks: {
+    bar: (item) => item + Math.random(),
+  },
 });
 const formatSrc2 = success(JSON.stringify(srcRepeat2, null, 2));
 console.log("formatSrc:::2", formatSrc2);
